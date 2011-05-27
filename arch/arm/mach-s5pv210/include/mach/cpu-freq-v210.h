@@ -18,18 +18,21 @@
  * APLL M,P,S value for target frequency
  **/
 #define APLL_VAL_1664	((1<<31)|(417<<16)|(3<<8)|(0))
+#define APLL_VAL_1400   ((1<<31)|(175<<16)|(3<<8)|(1))
 #define APLL_VAL_1332	((1<<31)|(444<<16)|(4<<8)|(0))
 #define APLL_VAL_1200	((1<<31)|(150<<16)|(3<<8)|(1))
 #define APLL_VAL_1000	((1<<31)|(125<<16)|(3<<8)|(1))
 #define APLL_VAL_800	((1<<31)|(100<<16)|(3<<8)|(1))
 
 enum perf_level {
-	L0 = 0,	// 1GHz
-	L1,	// 800MHz
-	L2,	// 400MHz
-	L3,	// 200MHz
-	L4,	// 100MHz
-	MAX_PERF_LEVEL = L4,
+	L0 = 0,	// 1.4GHz
+        L1,     // 1.2GHz                                                                                            
+        L2,     // 1GHz
+	L3,	// 800MHz
+	L4,	// 400MHz
+	L5,	// 200MHz
+	L6,	// 100MHz
+	MAX_PERF_LEVEL = L6,
 };
 
 #define SLEEP_FREQ      (800 * 1000) /* Use 800MHz when entering sleep */
@@ -60,3 +63,4 @@ extern int s5pv210_unlock_dvfs_high_level(unsigned int nToken);
 #endif
 
 #endif /* __ASM_ARCH_CPU_FREQ_H */
+
