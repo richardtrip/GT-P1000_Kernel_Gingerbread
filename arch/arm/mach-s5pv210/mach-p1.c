@@ -722,7 +722,7 @@ static struct regulator_init_data crespo_buck1_data = {
 		.valid_ops_mask	= REGULATOR_CHANGE_VOLTAGE |
 				  REGULATOR_CHANGE_STATUS,
 		.state_mem	= {
-			.uV	= 1250000,
+			.uV	= 1500000,
 			.mode	= REGULATOR_MODE_NORMAL,
 			.disabled = 1,
 		},
@@ -741,7 +741,7 @@ static struct regulator_init_data crespo_buck2_data = {
 		.valid_ops_mask	= REGULATOR_CHANGE_VOLTAGE |
 				  REGULATOR_CHANGE_STATUS,
 		.state_mem	= {
-			.uV	= 1100000,
+			.uV	= 1175000,
 			.mode	= REGULATOR_MODE_NORMAL,
 			.disabled = 1,
 		},
@@ -1764,7 +1764,7 @@ static int isx005_power_on(void)
 	/* LDO on */
 	int err;
 
-	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_2, L5);
+	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_2, L6);
 	
 	/* can't do this earlier because regulators aren't available in
 	 * early boot
@@ -2068,7 +2068,7 @@ static int s5k6aafx_power_on(void)
 	/* LDO on */
 	int err = 0;
 
-	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_2, L5);
+	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_2, L6);
 	
 	/* can't do this earlier because regulators aren't available in
 	 * early boot
@@ -2377,7 +2377,7 @@ static int s5k5ccgx_power_on(void)
 	/* LDO on */
 	int err;
 
-	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_2, L5);
+	s5pv210_lock_dvfs_high_level(DVFS_LOCK_TOKEN_2, L6);
 	
 	/* can't do this earlier because regulators aren't available in
 	 * early boot
