@@ -38,6 +38,10 @@
 #include <mach/regs-clock.h> 
 #include "wm8994.h"
 
+#ifdef CONFIG_SND_VOODOO
+#include "wm8994_voodoo.h"
+#endif
+
 #if defined ATTACH_ADDITINAL_PCM_DRIVER
 #include "../s3c24xx/s3c-pcmdev.h" //define USE_INFINIEON_EC_FOR_VT
 #endif 
@@ -225,6 +229,9 @@ int wm8994_write(struct snd_soc_codec *codec, unsigned int reg, unsigned int val
 {
 	u8 data[4];
 	int ret;
+#ifdef CONFIG_SND_VOODOO
+	value = voodoo_hook_wm8994_write(codec, reg, value);
+#endif
 	//BUG_ON(reg > WM8993_MAX_REGISTER);
 
 	/* data is
@@ -2127,6 +2134,9 @@ static int wm8994_i2c_probe(struct i2c_client *i2c,
 	codec->dev = &i2c->dev;
 	control_data1 = i2c;
 	ret = wm8994_init(wm8994_priv);
+#ifdef CONFIG_SND_VOODOO
+	voodoo_hook_wm8994_pcm_probe(codec);
+#endif
 	if (ret < 0)
 		dev_err(&i2c->dev, "failed to initialize WM8994\n");
 	return ret;
