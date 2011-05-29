@@ -15,16 +15,17 @@
 #include <linux/miscdevice.h>
 #include <linux/version.h>
 #include "wm8994_voodoo.h"
+#include "wm8994.h"
 
 #ifndef MODULE
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 35)
-#include "wm8994_samsung.h"
+#include "wm8994_def.h"
 #else
 #include "wm8994.h"
 #endif
 #else
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 35)
-#include "../wm8994_samsung.h"
+#include "../wm8994_def.h"
 #else
 #include "../wm8994.h"
 #endif

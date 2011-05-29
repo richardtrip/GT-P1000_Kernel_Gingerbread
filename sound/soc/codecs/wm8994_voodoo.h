@@ -1,3 +1,4 @@
+
 /*
  * wm8994.h  --  WM8994 Soc Audio driver
  *
@@ -6,7 +7,7 @@
  * published by the Free Software Foundation.
  */
 
-#if defined(CONFIG_MACH_p1) || defined (CONFIG_SAMSUNG_GALAXYS)	       \
+#if defined(CONFIG_MACH_P1) || defined (CONFIG_SAMSUNG_GALAXYS)	       \
 	|| defined (CONFIG_SAMSUNG_GALAXYSB)				       \
 	|| defined (CONFIG_SAMSUNG_CAPTIVATE)				       \
 	|| defined (CONFIG_SAMSUNG_VIBRANT)				       \
