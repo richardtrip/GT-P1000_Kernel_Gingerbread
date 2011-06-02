@@ -415,12 +415,6 @@ static void s5pv210_cpufreq_clksrcs_MPLL2APLL(unsigned int index,
 	 * 2. Turn on APLL
 	 * 2-1. Set PMS values
 	 */
-	if (index == L0)
-		/* APLL FOUT becomes 1400 Mhz */
-		__raw_writel(PLL45XX_APLL_VAL_1400, S5P_APLL_CON);
-	else
-		/* APLL FOUT becomes 800 Mhz */
-		__raw_writel(PLL45XX_APLL_VAL_800, S5P_APLL_CON);
 	switch (index){
 	case L0:
 	  /* APLL FOUT becomes 1400 Mhz */
